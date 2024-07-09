@@ -1,0 +1,257 @@
+@import url(https://fonts.googleapis.com/css?family=Sanchez);
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+body {
+  background: #092B40;
+  width: 100%;
+  height: 100%;
+}
+
+#sndFXtrig {
+  background: red;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+}
+
+#checkingTxt {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+}
+
+#outer-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#container {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  display: flex;
+  height: 86px;
+  width: 265px;
+  margin: 0 auto;
+  top: 50%;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  font-size: 1em;
+}
+
+#search {
+  display: flex;
+  margin-bottom: 18px;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  left: 1px;
+  top: -18px;
+}
+
+.bar {
+  color: #092B40;
+  height: 30px;
+  width: 32px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 4.43px solid #D96F32;
+  background: #092B40;
+  cursor: pointer;
+  position: absolute;
+  left: 93px;
+  top: 19px; /*6px;*/
+  outline: none;
+  transition: all .2s ease-in;
+}
+
+.barTextAlign {
+  padding-left: 15px !important
+}
+
+.expandDiv {
+  color: white;
+  transition: all .25s ease-out;
+  -webkit-transition: all .25s ease-out;
+  -moz-transition: all .25s ease-out;
+  -o-transition: all .25s ease-out;
+  padding-left: 10px;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+  border-bottom-left-radius: 23px;
+  border-bottom-right-radius: 23px;
+}
+
+.motion {
+  transform: translateX(-110px);
+  width: 256px;
+}
+.raiseUBText {
+  top: 40px !important;
+  padding-top: 13px;
+}
+.underBarText {
+  color: white;
+  position: absolute;
+  top: 60px;
+  padding-top: -50px !important;
+  /*ADD PADDING-TOP*/
+  left: 45px; 
+}
+
+.handle {
+  height: 15px;
+  width: 15px;
+  border-top: 3px solid #D96F32;
+  position: absolute;
+  top: 56px;
+  left: 118px; /*109px*/
+  transform: rotate(45deg);
+  transition: all .8s ease-in;
+}
+
+.shrinkHandle {
+  height: 0;
+  width: 0;
+  transition: all .08s ease-in;
+}
+
+#spellcheckresult {
+  color: orange;
+  position: absolute;
+  left: 28px;
+  top: 58px;
+}
+
+#spellcheckresult a {
+  color: orange;
+}
+
+#result-container {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  left: 0px;
+}
+
+.resultDiv {
+  position: relative;
+  font-family: 'EB Garamond', serif;
+  margin: 0 auto;
+  background: #E6E6E7;
+  width: 75%;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 15px 33px 10px 33px;
+}
+
+.resultDiv:hover {
+  border-left: 6px solid orange;
+  padding-left: 27px; 
+}
+
+.divTitle {
+  font-weight: bold;
+  font-weight: bold;
+  font-size: 1.055em;
+  color: #000000;
+}
+
+.hyperspan {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+}
+
+
+/*
+END RESULT CONTAINER SEGMENT
+*/
+
+
+/*
+TOGGLE X SEGMENT BEGIN
+*/
+
+.toggle-switch {
+  cursor: pointer;
+  color: orange;
+  font-size: 1.7em;
+  top: 16px !important;
+  left: 219px;
+  height: 15px;
+  width: 15px;
+  z-index: 999999999;
+  transition: all .2s ease-out;
+  position: relative;
+  top: -22% !important;
+}
+
+.x1 {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  width: 15px;
+  height: 2px;
+  background-color: #D96F32;
+  -webkit-transform: rotate(-225deg);
+  -moz-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+}
+
+.x2 {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  width: 15px;
+  height: 2px;
+  background-color: #D96F32;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.shrink-X1 {
+  width: 0;
+  transition: all .1s ease-out .15s;
+}
+
+.shrink-X2 {
+  width: 0;
+  transition: all .1s ease-out .25s;
+}
+
+show-X {
+  opacity: 1;
+  visibility: visible;
+}
+
+.moveSearchBar {
+  transform: translateY(-415px);
+  transition: transform .85s ease-in-out;
+}
+
+.h3items {
+  margin-bottom: 5px;
+  padding-bottom: 0px;
+  margin-top: 20px;
+}
+
+@keyframes shake-input {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
+
+.invalid-input {
+  animation: shake-input 200ms ease-in-out 0ms 2;
+  box-shadow: 0 0 0.6rem #ff0000;
+}
