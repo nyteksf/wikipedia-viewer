@@ -174,6 +174,8 @@ $("#btn1").click(function() {
       return false;
     }
 
+    $('html, body').scrollTop(0);
+
     //FIRST SEE IF OLD RESULTS NEED CLEARING BEFORE WE BEGIN POSTING NEW RESULTS TO THE SCREEN:
     if (result.length > 0) {
       result = [];
