@@ -92,7 +92,6 @@ body {
   position: absolute;
   top: 60px;
   padding-top: -50px !important;
-  /*ADD PADDING-TOP*/
   left: 45px; 
 }
 
@@ -101,8 +100,8 @@ body {
   width: 15px;
   border-top: 3px solid #D96F32;
   position: absolute;
-  top: 56px;
-  left: 118px; /*109px*/
+  top: 57px;
+  left: 120px;
   transform: rotate(45deg);
   transition: all .8s ease-in;
 }
@@ -164,12 +163,7 @@ body {
 
 
 /*
-END RESULT CONTAINER SEGMENT
-*/
-
-
-/*
-TOGGLE X SEGMENT BEGIN
+TOGGLE X SEGMENT
 */
 
 .toggle-switch {
