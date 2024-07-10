@@ -9,7 +9,7 @@ $(".bar").click(function() { //AND RECORD INCIDENT
 
   //KEEP TXT POSITIONING BALANCED:
   $('.bar').addClass('barTextAlign');
-  $('.underBarText').addClass('raiseUBText');
+  /* $('.underBarText').addClass('raiseUBText'); */
 
   //WORKING:
   $('.bar').addClass("expandDiv");
