@@ -74,6 +74,7 @@ $('.bar').keyup(function(e) { //If key is pressed...
       $("#spellcheckresult").hide()  // HIDE THE VALID/INVALID TEXT
 
       // CLOSE THE INPUT ON SECOND PRESS OF BACKSPACE
+      
       if (backspaceCount >= 2) {
         backspaceCount = 0;
 
@@ -83,6 +84,15 @@ $('.bar').keyup(function(e) { //If key is pressed...
         $('body').focus();
         barOpen = false;
       }
+    }
+  } else { 
+    //MAKE SURE SEARCHBAR IS NOT CLOSED PREMATURELY
+    //RESET COUNTER ON INPUT
+    backspaceCount = 0;
+    
+    if (backspaceCount === 0) {
+      
+      return;
     }
   }
 });
@@ -155,6 +165,8 @@ $("#btn1").click(function() {
     return false;
   }
 
+  $(".toggle-switch").addClass("no-click");
+
   var input = $("#bar").val();
 
   $.getJSON("https://en.wikipedia.org/w/api.php?  format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=" + input + "&callback=?", function(data) {
@@ -197,9 +209,18 @@ $("#btn1").click(function() {
 
       $("#result-container").append(newElement);
 
+      if (countDivs === len) {
+        // Enable the toggle button
+        $(".toggle-switch").removeClass("no-click");
+      }
+
     }
 
-    if (result == undefined) return;
+    if (result == undefined) {
+      
+      return;
+    }
+
     var num = 0;
 
     for (var i in result) {
@@ -275,9 +296,8 @@ function sndFX_click() {
 
   audio.play();
 }
-//http://soundbible.com/mp3/Dry Fire Gun-SoundBible.com-2053652037.mp3
-//http://soundbible.com/mp3/Finger%20Breaking-SoundBible.com-567843392.mp3
 
+// MAKE A CLACKING NOISE WHEN EACH RESULT IS LOADED
 $('#makeNoise').bind("click", function() {
   sndFX_click();
 });

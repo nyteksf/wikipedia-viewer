@@ -123,7 +123,7 @@ body {
   color: orange;
   position: absolute;
   left: 28px;
-  margin-top: 60px;
+  margin-top: 59px;
   font-size: 14px;
 }
 
@@ -256,4 +256,9 @@ show-X {
 .invalid-input {
   animation: shake-input 200ms ease-in-out 0ms 2;
   box-shadow: 0 0 0.6rem #ff0000;
+}
+
+.no-click {
+  pointer-events: none;
+  opacity: 0.3; /* Optional: to visually indicate the button is disabled */
 }
