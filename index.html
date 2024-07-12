@@ -9,17 +9,17 @@
     <script src="./app.js" defer></script>
 </head>
 <body>
-    <div id="outer-container">
+    <div class="outer-container">
         <div id="container" class="container">
           <p class="container__para">
             <a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank" id="search">Click here for a random article</a>
       
-            <div id="searchBar">
+            <div id="search-bar">
       
               <!-- JAVASCRIPT AND OUTPUT DIV BELOW:-->
-              <input type="text" id="bar" class="bar" onkeyup="getjs(this.value);" /></div>
+              <input type="text" id="bar" class="bar" onkeyup="search(this.value);" /></div>
       
-            <span id="spellcheckresult"></span>
+            <span id="spell-check-result"></span>
       
             <div id="toggle-switch" class="toggle-switch"><strong>
               &times;</strong>
@@ -27,13 +27,11 @@
       
             <div class="handle"></div>
       
-            <p id="underBarText" class="underBarText">
+            <p id="under-bar-text" class="under-bar-text">
               Click icon to search Wikipedia
             </p>
           </p>
         </div>
-      
-      
       </div>
       <!--RESULT CONTAINER-->
       <br />
@@ -41,9 +39,8 @@
       
       <button type="button" id="btn1" style="display: none;">AJAX-RESULTS!</button>
       
-      <button id="makeNoise" style="display: none;" type="button">
+      <button id="soundFX-trigger" style="display: none;" type="button">
           SNDFX
       </button>
-      
 </body>
 </html>

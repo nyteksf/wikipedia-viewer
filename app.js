@@ -1,15 +1,15 @@
 $("#toggle-switch").hide();
 
 /* 
-SEARCHBAR SECTION
+search-bar SECTION
 */
-var barOpen = false; //ONCLICK => ANIMATE MAGNIFYING GLASS INTO SEARCHBAR:
+var barOpen = false; //ONCLICK => ANIMATE MAGNIFYING GLASS INTO search-bar:
 $(".bar").click(function() { //AND RECORD INCIDENT
   barOpen = true;
 
   //KEEP TXT POSITIONING BALANCED:
   $('.bar').addClass('barTextAlign');
-  /* $('.underBarText').addClass('raiseUBText'); */
+  /* $('.under-bar-text').addClass('raiseUBText'); */
 
   //WORKING:
   $('.bar').addClass("expandDiv");
@@ -44,20 +44,20 @@ var spellcheck = function(data) {
       found = true;
       currentSearchIsValid = true;
       url = 'https://en.wikipedia.org/wiki/' + text;
-      document.getElementById('spellcheckresult').innerHTML = '<b style="color:green; margin-left:71px;">Valid</b>';
- $('.underBarText').removeClass('raiseUBText');
+      document.getElementById('spell-check-result').innerHTML = '<b style="color:green; margin-left:71px;">Valid</b>';
+ $('.under-bar-text').removeClass('raiseUBText');
     }
   }
   if (!found) {
     currentSearchIsValid = true;
-    document.getElementById('spellcheckresult').innerHTML = '<b style="color:red; margin-left:57px;">Not Valid</b>';
+    document.getElementById('spell-check-result').innerHTML = '<b style="color:red; margin-left:57px;">Not Valid</b>';
   }
-$('.underBarText').removeClass('raiseUBText');  
+$('.under-bar-text').removeClass('raiseUBText');  
 };
 
 //
 /*
-FUNCTION TO TRAP BACKSPACE KEY IN SEARCHBAR TO CLOSE IT WHEN MADE EMPTY:
+FUNCTION TO TRAP BACKSPACE KEY IN search-bar TO CLOSE IT WHEN MADE EMPTY:
 */
 //
 var backspaceCount = 0;
@@ -71,14 +71,14 @@ $('.bar').keyup(function(e) { //If key is pressed...
     if (test4input === "") { //If so, do this:
       backspaceCount++; // COUNT BACKSPACE PRESSES WHEN INPUT IS EMPTY
 
-      $("#spellcheckresult").hide()  // HIDE THE VALID/INVALID TEXT
+      $("#spell-check-result").hide()  // HIDE THE VALID/INVALID TEXT
 
       // CLOSE THE INPUT ON SECOND PRESS OF BACKSPACE
       
       if (backspaceCount >= 2) {
         backspaceCount = 0;
 
-        $("#spellcheckresult").hide();
+        $("#spell-check-result").hide();
         $(".toggle-switch").click();
 
         $('body').focus();
@@ -86,7 +86,7 @@ $('.bar').keyup(function(e) { //If key is pressed...
       }
     }
   } else { 
-    //MAKE SURE SEARCHBAR IS NOT CLOSED PREMATURELY
+    //MAKE SURE search-bar IS NOT CLOSED PREMATURELY
     //RESET COUNTER ON INPUT
     backspaceCount = 0;
     
@@ -97,7 +97,7 @@ $('.bar').keyup(function(e) { //If key is pressed...
   }
 });
 
-var getjs = function(value) {
+var search = function(value) {
   if (!value) {
     return; //ERR!
   }
@@ -109,11 +109,11 @@ var getjs = function(value) {
   } else if (barOpen && !barOpenAndMoved) {
     $(".toggle-switch").css('top', '15px');
   }
-  $("#spellcheckresult").show();
+  $("#spell-check-result").show();
 
   var url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + value + '&format=json&callback=spellcheck';
 
-  document.getElementById('spellcheckresult').innerHTML = '<span id="checkingTxt"><small>Checking ...</small></span>';
+  document.getElementById('spell-check-result').innerHTML = '<span id="checkingTxt"><small>Checking ...</small></span>';
   var elem = document.createElement('script');
   elem.setAttribute('src', url);
   elem.setAttribute('type', 'text/javascript');
@@ -125,7 +125,7 @@ barOpenAndMoved = false;
 $(document).on('keydown', function(evt) {
 
   if (evt.keyCode == 13 && barOpen == true) {
-    if ($("#spellcheckresult")[0].innerText === "Not Valid") {
+    if ($("#spell-check-result")[0].innerText === "Not Valid") {
       $(".bar").addClass("invalid-input");
 
       setTimeout(function(){
@@ -161,7 +161,7 @@ var result2 = [];
 //REPLACE BUTTON TRIGGER WITH ENTER KEY ONLY:
 $("#btn1").click(function() {
 
-  if ($("#spellcheckresult")[0].innerText === "Not Valid") {
+  if ($("#spell-check-result")[0].innerText === "Not Valid") {
     return false;
   }
 
@@ -200,7 +200,7 @@ $("#btn1").click(function() {
 
     function passObject(i) {
       countDivs++;
-      $("#makeNoise").click();
+      $("#soundFX-trigger").click();
 
       var newElement = document.createElement('div');
       newElement.id = "div" + countDivs;
@@ -242,14 +242,14 @@ $("#btn1").click(function() {
 'X' TOGGLE SWITCH FUNCTION
 */
 $(".toggle-switch").click(function() {
-  $("#spellcheckresult").hide();
+  $("#spell-check-result").hide();
   $(".toggle-switch").css('top', '23px');
   $('.bar').removeClass('barTextAlign');
-  $('.underBarText').removeClass('raiseUBText');
+  $('.under-bar-text').removeClass('raiseUBText');
   if (barOpenAndMoved) {
     recenterDiv();
   }
-  $('.underBarText').css('top','580px !important');
+  $('.under-bar-text').css('top','580px !important');
   $(".toggle-switch").hide();
   barOpen = false;
 
@@ -277,7 +277,7 @@ $(document).ready(function() {
 /*
 BEGIN CODE TO CENTER DIV
 */
-//Return searchbar to center of page upon close-down
+//Return search-bar to center of page upon close-down
 function recenterDiv() {
   $("#container").css("position", "absolute");
   $("#container").css("top", Math.max(0, (($(window).height() - $("#container").outerHeight()) / 2) +
@@ -300,6 +300,6 @@ function sndFX_click() {
 }
 
 // MAKE A CLACKING NOISE WHEN EACH RESULT IS LOADED
-$('#makeNoise').bind("click", function() {
+$('#soundFX-trigger').bind("click", function() {
   sndFX_click();
 });
