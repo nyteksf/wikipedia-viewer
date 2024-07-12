@@ -39,14 +39,14 @@ body {
   margin-top: 6px;
 }
 
-#search {
+.container__random-search {
   display: flex;
   margin-bottom: 18px;
   color: white;
   text-decoration: none;
   position: absolute;
   left: -38px;
-  top: -32px;
+  top: -31px;
   font-size: 22px;
   width: 100%;
   width: 350px;
@@ -97,12 +97,10 @@ body {
 .under-bar-text {
   color: white;
   position: absolute;
-  /* top: 60px; */
-  padding-top: -50px !important;
   width: 100%;
   max-width: 350px; 
   margin-left: 5px;
-  margin-top: 114px;
+  margin-top: 112px;
 }
 
 .handle {
