@@ -10,27 +10,26 @@
 </head>
 <body>
     <div class="outer-container">
-        <div id="container" class="container">
-          <p class="container__para">
-            <a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank" class=container__random-search>Click here for a random article</a>
+        <div class="container">
+          <div class="search-ui">
+            <a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank" class=search-ui__btn--random-search>Click here for a random article</a>
       
-            <div id="search-bar">
+            <div id="search-ui__input--wrapper">
+              <!-- INPUT DIV BELOW:-->
+              <input type="text" id="search-ui__input" class="search-ui__input" onkeyup="search(this.value);" /></div>
       
-              <!-- JAVASCRIPT AND OUTPUT DIV BELOW:-->
-              <input type="text" id="bar" class="bar" onkeyup="search(this.value);" /></div>
+            <span id="search-ui__spell-check-result"></span>
       
-            <span id="spell-check-result"></span>
-      
-            <div id="toggle-switch" class="toggle-switch"><strong>
+            <div class="search-ui__toggle-switch"><strong>
               &times;</strong>
             </div>
       
-            <div class="handle"></div>
+            <div class="search-ui__handle"></div>
       
-            <p id="under-bar-text" class="under-bar-text">
+            <p class="search-ui__under-bar-text">
               Click icon to search Wikipedia
             </p>
-          </p>
+          </div>
         </div>
       </div>
       <!--RESULT CONTAINER-->

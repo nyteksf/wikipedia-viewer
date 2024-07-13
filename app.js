@@ -1,24 +1,24 @@
-$("#toggle-switch").hide();
+$(".search-ui__toggle-switch").hide();
 
 /* 
 search-bar SECTION
 */
 var barOpen = false; //ONCLICK => ANIMATE MAGNIFYING GLASS INTO search-bar:
-$(".bar").click(function() { //AND RECORD INCIDENT
+$(".search-ui__input").click(function() { //AND RECORD INCIDENT
   barOpen = true;
 
   //KEEP TXT POSITIONING BALANCED:
-  $('.bar').addClass('barTextAlign');
-  /* $('.under-bar-text').addClass('raiseUBText'); */
+  $(".search-ui__input").addClass('barTextAlign');
+  /* $('.search-ui__under-bar-text').addClass('raiseUBText'); */
 
   //WORKING:
-  $('.bar').addClass("expandDiv");
-  $(".bar").addClass("motion");
-  $(".handle").addClass("shrinkHandle");
+  $(".search-ui__input").addClass("expandDiv");
+  $(".search-ui__input").addClass("motion");
+  $(".search-ui__handle").addClass("shrinkHandle");
 
   setTimeout(function() {
-    $(".bar").attr('placeholder', "WIKIPEDIA SEARCH");
-    $("#toggle-switch").show();
+    $(".search-ui__input").attr('placeholder', "WIKIPEDIA SEARCH");
+    $(".search-ui__toggle-switch").show();
   }, 385);
 });
 
@@ -36,7 +36,7 @@ var spellcheck = function(data) {
   var url = '';
   var text = data[0];
 
-  if (text != document.getElementById('bar').value) {
+  if (text != document.getElementById('search-ui__input').value) {
     return;
   }
   for (i = 0; i < data[1].length; i++) {
@@ -44,15 +44,15 @@ var spellcheck = function(data) {
       found = true;
       currentSearchIsValid = true;
       url = 'https://en.wikipedia.org/wiki/' + text;
-      document.getElementById('spell-check-result').innerHTML = '<b style="color:green; margin-left:71px;">Valid</b>';
- $('.under-bar-text').removeClass('raiseUBText');
+      document.getElementById('search-ui__spell-check-result').innerHTML = '<b style="color:green; margin-left:71px;">Valid</b>';
+ $('.search-ui__under-bar-text').removeClass('raiseUBText');
     }
   }
   if (!found) {
     currentSearchIsValid = true;
-    document.getElementById('spell-check-result').innerHTML = '<b style="color:red; margin-left:57px;">Not Valid</b>';
+    document.getElementById('search-ui__spell-check-result').innerHTML = '<b style="color:red; margin-left:57px;">Not Valid</b>';
   }
-$('.under-bar-text').removeClass('raiseUBText');  
+$('.search-ui__under-bar-text').removeClass('raiseUBText');  
 };
 
 //
@@ -62,24 +62,24 @@ FUNCTION TO TRAP BACKSPACE KEY IN search-bar TO CLOSE IT WHEN MADE EMPTY:
 //
 var backspaceCount = 0;
 
-$('.bar').keyup(function(e) { //If key is pressed...
+$('.search-ui__input').keyup(function(e) { //If key is pressed...
 
-  if (e.keyCode == 8 && barOpen) { //If key is 'backspace' && #bar is open
+  if (e.keyCode == 8 && barOpen) { //If key is 'backspace' && .search-ui__input is open
 
-    var test4input = $(".bar").val(); //Check state to see if input is empty
+    var test4input = $(".search-ui__input").val(); //Check state to see if input is empty
     
     if (test4input === "") { //If so, do this:
       backspaceCount++; // COUNT BACKSPACE PRESSES WHEN INPUT IS EMPTY
 
-      $("#spell-check-result").hide()  // HIDE THE VALID/INVALID TEXT
+      $("#search-ui__spell-check-result").hide()  // HIDE THE VALID/INVALID TEXT
 
       // CLOSE THE INPUT ON SECOND PRESS OF BACKSPACE
       
       if (backspaceCount >= 2) {
         backspaceCount = 0;
 
-        $("#spell-check-result").hide();
-        $(".toggle-switch").click();
+        $("#search-ui__spell-check-result").hide();
+        $(".search-ui__toggle-switch").click();
 
         $('body').focus();
         barOpen = false;
@@ -102,18 +102,18 @@ var search = function(value) {
     return; //ERR!
   }
 
-  if ($(".bar").val() === "" || !barOpen) {
-    $(".bar").val(""); //DELETE NEW CHARS
+  if ($(".search-ui__input").val() === "" || !barOpen) {
+    $(".search-ui__input").val(""); //DELETE NEW CHARS
     return; //AND CANCEL FUNC
 
   } else if (barOpen && !barOpenAndMoved) {
-    $(".toggle-switch").css('top', '15px');
+    $(".search-ui__toggle-switch").css("top", "15px");
   }
-  $("#spell-check-result").show();
+  $("#search-ui__spell-check-result").show();
 
   var url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + value + '&format=json&callback=spellcheck';
 
-  document.getElementById('spell-check-result').innerHTML = '<span id="checkingTxt"><small>Checking ...</small></span>';
+  document.getElementById('search-ui__spell-check-result').innerHTML = '<span id="checkingTxt"><small>Checking ...</small></span>';
   var elem = document.createElement('script');
   elem.setAttribute('src', url);
   elem.setAttribute('type', 'text/javascript');
@@ -125,17 +125,17 @@ barOpenAndMoved = false;
 $(document).on('keydown', function(evt) {
 
   if (evt.keyCode == 13 && barOpen == true) {
-    if ($("#spell-check-result")[0].innerText === "Not Valid") {
-      $(".bar").addClass("invalid-input");
+    if ($("#search-ui__spell-check-result")[0].innerText === "Not Valid") {
+      $(".search-ui__input").addClass("invalid-input");
 
       setTimeout(function(){
-        $(".bar").removeClass("invalid-input");
+        $(".search-ui__input").removeClass("invalid-input");
       }, 200)
 
       return false;
     }
 
-    var val1 = $("#bar").val();
+    var val1 = $(".search-ui__input").val();
 
     if (val1.length <= 0) {
       return false;
@@ -161,13 +161,13 @@ var result2 = [];
 //REPLACE BUTTON TRIGGER WITH ENTER KEY ONLY:
 $("#btn1").click(function() {
 
-  if ($("#spell-check-result")[0].innerText === "Not Valid") {
+  if ($("#search-ui__spell-check-result")[0].innerText === "Not Valid") {
     return false;
   }
 
-  $(".toggle-switch").addClass("no-click");
+  $(".search-ui__toggle-switch").addClass("no-click");
 
-  var input = $("#bar").val();
+  var input = $(".search-ui__input").val();
 
   $.getJSON("https://en.wikipedia.org/w/api.php?  format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=" + input + "&callback=?", function(data) {
     if (data == undefined) {
@@ -213,7 +213,7 @@ $("#btn1").click(function() {
 
       if (countDivs === len) {
         // Enable the toggle button
-        $(".toggle-switch").removeClass("no-click");
+        $(".search-ui__toggle-switch").removeClass("no-click");
       }
 
     }
@@ -241,16 +241,16 @@ $("#btn1").click(function() {
 /*
 'X' TOGGLE SWITCH FUNCTION
 */
-$(".toggle-switch").click(function() {
-  $("#spell-check-result").hide();
-  $(".toggle-switch").css('top', '23px');
-  $('.bar').removeClass('barTextAlign');
-  $('.under-bar-text').removeClass('raiseUBText');
+$(".search-ui__toggle-switch").click(function() {
+  $("#search-ui__spell-check-result").hide();
+  $(".search-ui__toggle-switch").css('top', '23px');
+  $('.search-ui__input').removeClass('barTextAlign');
+  $('.search-ui__under-bar-text').removeClass('raiseUBText');
   if (barOpenAndMoved) {
     recenterDiv();
   }
-  $('.under-bar-text').css('top','580px !important');
-  $(".toggle-switch").hide();
+  $('.search-ui__under-bar-text').css('top','580px !important');
+  $(".search-ui__toggle-switch").hide();
   barOpen = false;
 
   if (barOpenAndMoved) {
@@ -258,19 +258,19 @@ $(".toggle-switch").click(function() {
     barOpenAndMoved = false;
   }
 
-  $("#toggle-switch").hide();
-  $('.bar').removeClass("expandDiv");
-  $(".bar").removeClass("motion");
-  $(".handle").removeClass("shrinkHandle");
-  $(".bar").attr('placeholder', ""); //CLEAR
-  $(".bar").val(""); //CLEAR
+  $(".search-ui__toggle-switch").hide();
+  $(".search-ui__input").removeClass("expandDiv");
+  $(".search-ui__input").removeClass("motion");
+  $(".search-ui__handle").removeClass("shrinkHandle");
+  $(".search-ui__input").attr('placeholder', ""); //CLEAR
+  $(".search-ui__input").val(""); //CLEAR
 
 });
 
 //SCROLL TO CENTER OF SCREEN AUTOMAGICALLY ON DOCUMENT LOAD:
 $(document).ready(function() {
   $('html, body').animate({
-    scrollTop: $('#container').offset().top
+    scrollTop: $('.container').offset().top
   }, 'slow');
 });
 
@@ -279,10 +279,10 @@ BEGIN CODE TO CENTER DIV
 */
 //Return search-bar to center of page upon close-down
 function recenterDiv() {
-  $("#container").css("position", "absolute");
-  $("#container").css("top", Math.max(0, (($(window).height() - $("#container").outerHeight()) / 2) +
+  $(".container").css("position", "absolute");
+  $(".container").css("top", Math.max(0, (($(window).height() - $(".container").outerHeight()) / 2) +
     $(window).scrollTop()) + "px");
-  $("#container").css("left", Math.max(0, (($(window).width() - $("#container").outerWidth()) / 2) +
+  $(".container").css("left", Math.max(0, (($(window).width() - $(".container").outerWidth()) / 2) +
     $(window).scrollLeft()) + "px");
   return;
 }

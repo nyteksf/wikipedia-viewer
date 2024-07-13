@@ -23,9 +23,10 @@ body {
   height: 100%;
   width: 100%;
   position: absolute;
+  margin-top: 2px;
 }
 
-#container {
+.container {
   font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
   display: flex;
   height: 86px;
@@ -39,7 +40,7 @@ body {
   margin-top: 6px;
 }
 
-.container__random-search {
+.search-ui__btn--random-search {
   display: flex;
   margin-bottom: 18px;
   color: white;
@@ -52,7 +53,7 @@ body {
   width: 350px;
 }
 
-.bar {
+.search-ui__input {
   color: #092B40;
   font-size: 15px;
   height: 30px;
@@ -90,20 +91,22 @@ body {
   transform: translateX(-110px);
   width: 256px;
 }
+
 .raiseUBText {
   top: 40px !important;
   padding-top: 13px;
 }
-.under-bar-text {
+
+.search-ui__under-bar-text {
   color: white;
   position: absolute;
   width: 100%;
   max-width: 350px; 
   margin-left: 5px;
-  margin-top: 112px;
+  margin-top: 42px;
 }
 
-.handle {
+.search-ui__handle {
   height: 15px;
   width: 15px;
   border-top: 3px solid #D96F32;
@@ -120,15 +123,15 @@ body {
   transition: all .08s ease-in;
 }
 
-#spell-check-result {
+#search-ui__spell-check-result {
   color: orange;
   position: absolute;
   left: 28px;
-  margin-top: 58px;
+  margin-top: 34px;
   font-size: 14px;
 }
 
-#spell-check-result a {
+#search-ui__spell-check-result a {
   color: orange;
 }
 
@@ -175,7 +178,7 @@ body {
 TOGGLE X SEGMENT
 */
 
-.toggle-switch {
+.search-ui__toggle-switch {
   cursor: pointer;
   color: orange;
   font-size: 1.3em;
