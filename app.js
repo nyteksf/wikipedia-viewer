@@ -3,7 +3,7 @@ $(".search-ui__toggle-switch").hide();
 /* 
 search-bar SECTION
 */
-var barOpen = false; //ONCLICK => ANIMATE MAGNIFYING GLASS INTO search-bar:
+let barOpen = false; //ONCLICK => ANIMATE MAGNIFYING GLASS INTO search-bar:
 $(".search-ui__input").click(function() { //AND RECORD INCIDENT
   barOpen = true;
 
@@ -31,10 +31,10 @@ SPELLCHECKER SECTION
 //data[2] = Titles of results
 //data[3] = Related URL if found
 
-var spellcheck = function(data) {
-  var found = false;
-  var url = '';
-  var text = data[0];
+let spellcheck = function(data) {
+  let found = false;
+  let url = '';
+  let text = data[0];
 
   if (text != document.getElementById('search-ui__input').value) {
     return;
@@ -60,13 +60,13 @@ $('.search-ui__under-bar-text').removeClass('raiseUBText');
 FUNCTION TO TRAP BACKSPACE KEY IN search-bar TO CLOSE IT WHEN MADE EMPTY:
 */
 //
-var backspaceCount = 0;
+let backspaceCount = 0;
 
 $('.search-ui__input').keyup(function(e) { //If key is pressed...
 
   if (e.keyCode == 8 && barOpen) { //If key is 'backspace' && .search-ui__input is open
 
-    var test4input = $(".search-ui__input").val(); //Check state to see if input is empty
+    let test4input = $(".search-ui__input").val(); //Check state to see if input is empty
     
     if (test4input === "") { //If so, do this:
       backspaceCount++; // COUNT BACKSPACE PRESSES WHEN INPUT IS EMPTY
@@ -97,7 +97,7 @@ $('.search-ui__input').keyup(function(e) { //If key is pressed...
   }
 });
 
-var search = function(value) {
+let search = function(value) {
   if (!value) {
     return; //ERR!
   }
@@ -111,10 +111,10 @@ var search = function(value) {
   }
   $("#search-ui__spell-check-result").show();
 
-  var url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + value + '&format=json&callback=spellcheck';
+  let url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + value + '&format=json&callback=spellcheck';
 
   document.getElementById('search-ui__spell-check-result').innerHTML = '<span id="checkingTxt"><small>Checking ...</small></span>';
-  var elem = document.createElement('script');
+  let elem = document.createElement('script');
   elem.setAttribute('src', url);
   elem.setAttribute('type', 'text/javascript');
   document.getElementsByTagName('head')[0].appendChild(elem);
@@ -135,7 +135,7 @@ $(document).on('keydown', function(evt) {
       return false;
     }
 
-    var val1 = $(".search-ui__input").val();
+    let val1 = $(".search-ui__input").val();
 
     if (val1.length <= 0) {
       return false;
@@ -154,8 +154,8 @@ $(document).on('keydown', function(evt) {
 /*
 RESULT CONTAINER SEGMENT
 */
-var result = [];
-var result2 = [];
+let result = [];
+let result2 = [];
 
 //KEYBOARD KEYS SANS ENTER TRIGGER SPELLCHECK FUNC
 //REPLACE BUTTON TRIGGER WITH ENTER KEY ONLY:
@@ -167,7 +167,7 @@ $("#btn1").click(function() {
 
   $(".search-ui__toggle-switch").addClass("no-click");
 
-  var input = $(".search-ui__input").val();
+  let input = $(".search-ui__input").val();
 
   $.getJSON("https://en.wikipedia.org/w/api.php?  format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=" + input + "&callback=?", function(data) {
     if (data == undefined) {
@@ -182,9 +182,9 @@ $("#btn1").click(function() {
       $("#result-container").empty();
     }
 
-    //JSONP response data is now in the input variable
-    var page = 'http://en.wikipedia.org/?curid=';
-    var input = data.query.pages;
+    //JSONP response data is now in the input letiable
+    let page = 'http://en.wikipedia.org/?curid=';
+    let input = data.query.pages;
 
     $.each(input, function(index) {
 
@@ -195,14 +195,14 @@ $("#btn1").click(function() {
       });
     });
 
-    var countDivs = 0;
-    var len = result.length;
+    let countDivs = 0;
+    let len = result.length;
 
     function passObject(i) {
       countDivs++;
       $("#soundFX-trigger").click();
 
-      var newElement = document.createElement('div');
+      let newElement = document.createElement('div');
       newElement.id = "div" + countDivs;
       newElement.className = "resultDiv";
       newElement.innerHTML = "<h3 class='h3items'><span class='divTitle'>" + result[i].title + "</span></h3><br />";
@@ -223,12 +223,12 @@ $("#btn1").click(function() {
       return;
     }
 
-    var num = 0;
-
-    for (var i in result) {
+    let num = 0;
+    
+    for (let i in result) {
       (function() {
         num++;
-        var div = i;
+        let div = i;
         setTimeout(function() {
           passObject(div);
         }, 150 * num);
@@ -287,10 +287,10 @@ function recenterDiv() {
   return;
 }
 
-var removed = false;
+let removed = false;
 
 function sndFX_click() {
-  var audio = document.createElement("audio");
+  let audio = document.createElement("audio");
   audio.src = "http://soundbible.com/mp3/Click-SoundBible.com-1387633738.mp3";
   audio.addEventListener("ended", function() {
     document.removeChild(this);
