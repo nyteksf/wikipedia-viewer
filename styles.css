@@ -17,7 +17,7 @@ body {
 }
 
 #checkingTxt {
-  font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  /* font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif; */
   font-family: "Lato", sans-serif;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-  font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  /* font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif; */
   font-family: "Lato", sans-serif;
   display: flex;
   height: 86px;
@@ -58,6 +58,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 77px;
 }
 
 .search-ui__input {
@@ -72,7 +73,7 @@ body {
   cursor: pointer;
   position: absolute;
   top: 3px; /*19px;*/
-  left: 80px;
+  left: 119px;
   outline: none;
   transition: all .2s ease-in;
 }
@@ -95,7 +96,7 @@ body {
 }
 
 .motion {
-  transform: translateX(-116px);
+  transform: translateX(-119px);
   width: 256px;
 }
 
@@ -109,7 +110,7 @@ body {
   position: absolute;
   width: 100%;
   max-width: 350px; 
-  margin-left: 5px;
+  margin-left: -4px;
   margin-top: 48px;
   transition: margin-top 300ms ease;
 }
@@ -119,8 +120,8 @@ body {
   width: 15px;
   border-top: 3px solid #D96F32;
   position: absolute;
-  top: 39px;
-  left: 109px;
+  top: 38px;
+  left: 149px;
   transform: rotate(45deg);
   transition: all .8s ease-in;
 }
@@ -134,7 +135,7 @@ body {
 #search-ui__spell-check-result {
   color: orange;
   position: absolute;
-  left: 16px;
+  left: 52px;
   margin-top: 24px;
   font-size: 14px;
 }
@@ -181,7 +182,6 @@ body {
     top:0;
 }
 
-
 /*
 TOGGLE X SEGMENT
 */
@@ -191,7 +191,7 @@ TOGGLE X SEGMENT
   color: orange;
   font-size: 1.3em;
   top: -27px !important;
-  left: 94px;
+  left: 90px;
   height: 15px;
   width: 15px;
   z-index: 999999999;

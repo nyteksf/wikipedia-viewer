@@ -3,13 +3,13 @@ $(".search-ui__toggle-switch").hide();
 /* 
 search-bar SECTION
 */
+
 let barOpen = false; //ONCLICK => ANIMATE MAGNIFYING GLASS INTO search-bar:
 $(".search-ui__input").click(function() { //AND RECORD INCIDENT
   barOpen = true;
 
   //KEEP TXT POSITIONING BALANCED:
   $(".search-ui__input").addClass('barTextAlign');
-  /* $('.search-ui__under-bar-text').addClass('raiseUBText'); */
 
   //WORKING:
   $(".search-ui__input").addClass("expandDiv");
@@ -183,7 +183,7 @@ $("#btn1").click(function() {
       $("#result-container").empty();
     }
 
-    //JSONP response data is now in the input letiable
+    //JSONP response data is now in the input
     let page = 'http://en.wikipedia.org/?curid=';
     let input = data.query.pages;
 
@@ -282,7 +282,7 @@ BEGIN CODE TO CENTER DIV
 //Return search-bar to center of page upon close-down
 function recenterDiv() {
   $(".container").css("position", "absolute");
-  $(".container").css("top", Math.max(0, (($(window).height() - $(".container").outerHeight()) / 2) +
+  $(".container").css("top", Math.max(0, (($(window).height() - $(".container").outerHeight()) / 2 + 42) +
     $(window).scrollTop()) + "px");
   $(".container").css("left", Math.max(0, (($(window).width() - $(".container").outerWidth()) / 2) +
     $(window).scrollLeft()) + "px");
