@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Sanchez);
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 body {
   background: #092B40;
@@ -17,6 +18,7 @@ body {
 
 #checkingTxt {
   font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  font-family: "Lato", sans-serif;
 }
 
 .outer-container {
@@ -28,6 +30,7 @@ body {
 
 .container {
   font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  font-family: "Lato", sans-serif;
   display: flex;
   height: 86px;
   width: 265px;
@@ -41,16 +44,20 @@ body {
 }
 
 .search-ui__btn--random-search {
-  display: flex;
   margin-bottom: 18px;
   color: white;
   text-decoration: none;
   position: absolute;
-  left: -38px;
-  top: -31px;
+  top: -29px;
   font-size: 22px;
   width: 100%;
   width: 350px;
+}
+
+.search-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-ui__input {
@@ -64,8 +71,8 @@ body {
   background: #092B40;
   cursor: pointer;
   position: absolute;
-  left: 93px;
-  top: 19px; /*6px;*/
+  top: 3px; /*19px;*/
+  left: 80px;
   outline: none;
   transition: all .2s ease-in;
 }
@@ -88,7 +95,7 @@ body {
 }
 
 .motion {
-  transform: translateX(-110px);
+  transform: translateX(-116px);
   width: 256px;
 }
 
@@ -103,7 +110,8 @@ body {
   width: 100%;
   max-width: 350px; 
   margin-left: 5px;
-  margin-top: 42px;
+  margin-top: 48px;
+  transition: margin-top 300ms ease;
 }
 
 .search-ui__handle {
@@ -111,8 +119,8 @@ body {
   width: 15px;
   border-top: 3px solid #D96F32;
   position: absolute;
-  top: 57px;
-  left: 120px;
+  top: 39px;
+  left: 109px;
   transform: rotate(45deg);
   transition: all .8s ease-in;
 }
@@ -126,8 +134,8 @@ body {
 #search-ui__spell-check-result {
   color: orange;
   position: absolute;
-  left: 28px;
-  margin-top: 34px;
+  left: 16px;
+  margin-top: 24px;
   font-size: 14px;
 }
 
@@ -182,14 +190,13 @@ TOGGLE X SEGMENT
   cursor: pointer;
   color: orange;
   font-size: 1.3em;
-  top: 16px !important;
-  left: 233px;
+  top: -27px !important;
+  left: 94px;
   height: 15px;
   width: 15px;
   z-index: 999999999;
   transition: all .2s ease-out;
   position: relative;
-  top: -14px !important;
 }
 
 .x1 {

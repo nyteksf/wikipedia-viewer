@@ -15,6 +15,7 @@ $(".search-ui__input").click(function() { //AND RECORD INCIDENT
   $(".search-ui__input").addClass("expandDiv");
   $(".search-ui__input").addClass("motion");
   $(".search-ui__handle").addClass("shrinkHandle");
+  $(".search-ui__under-bar-text").css("margin-top","71px");
 
   setTimeout(function() {
     $(".search-ui__input").attr('placeholder', "WIKIPEDIA SEARCH");
@@ -261,6 +262,7 @@ $(".search-ui__toggle-switch").click(function() {
   $(".search-ui__toggle-switch").hide();
   $(".search-ui__input").removeClass("expandDiv");
   $(".search-ui__input").removeClass("motion");
+  $(".search-ui__under-bar-text").css("margin-top","48px");
   $(".search-ui__handle").removeClass("shrinkHandle");
   $(".search-ui__input").attr('placeholder', ""); //CLEAR
   $(".search-ui__input").val(""); //CLEAR
